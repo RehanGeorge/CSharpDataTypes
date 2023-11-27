@@ -1,4 +1,7 @@
-﻿namespace DataTypes
+﻿using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
+
+namespace DataTypes
 {
     internal class Program
     {
@@ -130,8 +133,76 @@
                 But spaces work";
                 Console.WriteLine(verbatim);
                 Console.WriteLine(@"C:\User\Admin\Dog"); // @ can be used to print paths as the standard write will treat \ as escape character
+
+                Console.WriteLine("this is a \"string \" with a backslash \\ and a colon: :");
             }
-            StringManipulation();
+            static void Challenge1()
+            {
+                string varl;
+                Console.Write("Please enter your name and press enter: ");
+                varl = Console.ReadLine();
+                Console.WriteLine($"Upper case: {varl.ToUpper()}");
+                Console.WriteLine(varl.ToLower());
+                Console.WriteLine(varl.Trim());
+                Console.WriteLine(varl.Substring(0, 3));
+            }
+            static void Challenge2()
+            {
+                
+                string varl;
+                Console.Write("Enter a string here: ");
+                varl = Console.ReadLine();
+                Console.Write("Enter the character to search: ");
+                char varl2 = Console.ReadLine()[0];
+                Console.WriteLine(varl.IndexOf(varl2));
+                
+
+                Console.Write("Please enter your first name: ");
+                string firstName = Console.ReadLine();
+                Console.Write("Please enter your last name: ");
+                string lastName = Console.ReadLine();
+                string fullName = $"{firstName} {lastName}";
+                Console.WriteLine($"Your name is {fullName}");
+            }
+            static void Challenge3()
+            {
+                byte number1 = 2;
+                sbyte number2 = -3;
+                int number3 = -5;
+                uint number4 = 8;
+                short number5 = -13;
+                ushort number6 = 21;
+                long number7 = -34;
+                ulong number8 = 55;
+                float number9 = 89.0f;
+                double number10 = -144.0;
+                char letter1 = 'a';
+                bool isTrue = true;
+                string name = "Rehan";
+                decimal number11 = 233.0m;
+                string string1 = "I control text";
+                string string2 = "15";
+                int number12 = Int32.Parse(string2);
+                Console.WriteLine($"number 1: {number1}, number2: {number2}, " +
+                    $"number3: {number3}, number4: {number4}, number5: {number5}, " +
+                    $"number6: {number6}, number7: {number7}, number8: {number8}, " +
+                    $"number9: {number9}, number10: {number10}, letter1: {letter1}, " +
+                    $"isTrue: {isTrue}, name: {name}, number11: {number11}, string1: " +
+                    $"{string1}, string2: {string2}, number12: {number12}");
+            }
+            static void Constants()
+            { 
+                const double PI = 3.14159265359;
+                const int weeks = 52, months = 12;
+                const int days = 365;
+                const string birthday = "01/01/1980";
+                Console.WriteLine("My birthday is always going to be: {0}", birthday);
+            }
+        }
+        // Start Section 4:
+        public void WriteSomething()
+        {
+            Console.WriteLine("I am called from a method");
         }
     }
 }
