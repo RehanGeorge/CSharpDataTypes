@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
-
-namespace DataTypes
+﻿namespace DataTypes
 {
     internal class Program
     {
@@ -198,11 +195,61 @@ namespace DataTypes
                 const string birthday = "01/01/1980";
                 Console.WriteLine("My birthday is always going to be: {0}", birthday);
             }
+            /*
+            WriteSomething();
+            WriteSomethingSpecific("Hi, Rehan");
+            Console.WriteLine(Add(15, 31));
+            Console.WriteLine(Multiply(15, 31));
+            Console.WriteLine(Divide(15, 31));
+            Greeting("Rehan");
+            Greeting("Rohan");
+            Greeting("Rihan");
+            Console.ReadKey();
+            */
+            Calculate();
         }
-        // Start Section 4:
-        public void WriteSomething()
+        // Start Section 3:
+        public static void WriteSomething()
         {
             Console.WriteLine("I am called from a method");
+        }
+        public static void WriteSomethingSpecific(string myText)
+        {
+            Console.WriteLine(myText);
+        }
+        public static int Add(int num1, int num2)
+        { 
+            return num1 + num2;
+        }
+        public static int Subtract(int num1, int num2)
+        {
+            return num1 - num2;
+        }
+        public static int Multiply(int num1, int num2)
+        {
+            return num1 * num2;
+        }
+        public static double Divide(double num1, double num2)
+        {
+            return num1 / num2;
+        }
+        public static void Greeting(string name)
+        {
+            Console.WriteLine($"Hello {name}");
+        }
+        public static void Calculate()
+        {
+            Console.WriteLine("Please enter the first number: ");
+            int num1 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter the second number: ");
+            int num2 = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter your function: Add / Subtract / Multiply / Divide");
+            string function = Console.ReadLine();
+            if (function == "Add") Console.WriteLine(Add(num1, num2));
+            else if (function == "Subtract") Console.WriteLine(Subtract(num1, num2));
+            else if (function == "Multiply") Console.WriteLine(Multiply(num1, num2));
+            else if (function == "Divide") Console.WriteLine(Divide(num1, num2));
+            else Console.WriteLine("Invalid function");
         }
     }
 }
