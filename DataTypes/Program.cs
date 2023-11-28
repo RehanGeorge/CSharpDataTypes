@@ -234,7 +234,6 @@
             Console.ReadKey();
             */
             // TryandCatch();
-            Operators();
         }
         // Start Section 3:
         public static void WriteSomething()
