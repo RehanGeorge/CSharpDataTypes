@@ -195,6 +195,33 @@
                 const string birthday = "01/01/1980";
                 Console.WriteLine("My birthday is always going to be: {0}", birthday);
             }
+            static void TryandCatch()
+            {
+                // Try and Catch
+                Console.WriteLine("Please enter a number: ");
+                string userInput = Console.ReadLine();
+
+                try
+                {
+                    int userinputasInt = int.Parse(userInput);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Format Exception, please enter only whole numbers");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Overflow Exception, number entered was too long");
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("ArgumentNullException, value was empty");
+                }
+                finally
+                {
+                    Console.WriteLine("This is called anyways");
+                }
+            }
             /*
             WriteSomething();
             WriteSomethingSpecific("Hi, Rehan");
@@ -206,7 +233,8 @@
             Greeting("Rihan");
             Console.ReadKey();
             */
-            Calculate();
+            // TryandCatch();
+            Operators();
         }
         // Start Section 3:
         public static void WriteSomething()
@@ -231,6 +259,17 @@
         }
         public static double Divide(double num1, double num2)
         {
+            try
+            {  
+                if (num2 == 0)
+                {
+                    throw new DivideByZeroException("Cannot divide by zero");
+                }
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return num1 / num2;
         }
         public static void Greeting(string name)
@@ -250,6 +289,74 @@
             else if (function == "Multiply") Console.WriteLine(Multiply(num1, num2));
             else if (function == "Divide") Console.WriteLine(Divide(num1, num2));
             else Console.WriteLine("Invalid function");
+        }
+        public static void Operators()
+        {
+            // unary operators
+            int num1 = 1;
+            int num2 = 5;
+            int num3;
+
+            // unary plus operator
+            num3 = +num1;
+            Console.WriteLine(num3);
+
+            // unary minus operator
+            num3 = -num1;
+            Console.WriteLine($"num3 is {num3}");
+
+            bool isSunny = true;
+            Console.WriteLine($"is it sunny? {!isSunny}");
+
+            // increment operator
+            Console.WriteLine($"num2 is {num2}");
+            Console.WriteLine($"num2++ is {num2++}");
+            Console.WriteLine($"num2 is now {num2}");
+            // pre increment operator
+            Console.WriteLine($"++num2 is {++num2}");
+            Console.WriteLine($"num2 is now {num2}");
+            // decrement operator
+            Console.WriteLine($"num2-- is {num2--}");
+            Console.WriteLine($"num2 is now {num2}");
+            // pre decrement operator
+            Console.WriteLine($"--num2 is {--num2}");
+            Console.WriteLine($"num2 is now {num2}");
+
+            // binary operators
+            int result;
+            result = num1 + num2;
+            Console.WriteLine($"num1 ({num1}) + num2 ({num2}) = {result}");
+            result = num1 - num2;
+            Console.WriteLine($"num1 - num2 = {result}");
+            result = num1 * num2;
+            Console.WriteLine($"num1 * num2 = {result}");
+            result = num1 / num2;
+            Console.WriteLine($"num1 / num2 = {result}");
+            result = num1 % num2;
+            Console.WriteLine($"num1 % num2 = {result}");
+
+            // relational and type operators
+            bool isLower;
+            isLower = num1 < num2;
+            Console.WriteLine($"num1 < num2 is {isLower}");
+            isLower = num1 > num2;
+            Console.WriteLine($"num1 > num2 is {isLower}");
+
+            // equality operator
+            bool isEqual;
+            isEqual = num1 == num2;
+            Console.WriteLine($"num1 == num2 is {isEqual}");
+            isEqual = num1 != num2;
+            Console.WriteLine($"num1 != num2 is {isEqual}");
+
+            // conditional operators
+            bool isLowerAndSunny;
+            isLowerAndSunny = isLower && isSunny;
+            Console.WriteLine($"isLower && isSunny is {isLowerAndSunny}");
+
+            isLowerAndSunny = isLower || isSunny;
+            Console.WriteLine($"isLower || isSunny is {isLowerAndSunny}");
+
         }
     }
 }
